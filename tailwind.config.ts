@@ -74,12 +74,22 @@ export default {
         shimmer: {
           "100%": { transform: "translateX(100%)" },
         },
+        bounce: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-15px)" },
+        },
+        "coin-spin": {
+          "0%": { transform: "rotateY(0deg)" },
+          "100%": { transform: "rotateY(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         float: "float 3s ease-in-out infinite",
         shimmer: "shimmer 2s infinite",
+        bounce: "bounce 2s infinite",
+        "coin-spin": "coin-spin 3s infinite",
       },
       backgroundImage: {
         "gradient-primary": "linear-gradient(135deg, #6A0DAD 0%, #D8BFD8 100%)",

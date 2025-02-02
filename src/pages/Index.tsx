@@ -27,7 +27,7 @@ const Index = () => {
                 className="bg-accent-cyan hover:bg-accent-cyan/90 text-black font-semibold group animate-fade-in"
                 asChild
               >
-                <Link to="/signup">
+                <Link to="/login">
                   Get Started
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -69,13 +69,33 @@ const Index = () => {
               ))}
             </div>
           </div>
-          <div className="hidden lg:block relative animate-float">
+          <div className="hidden lg:block relative">
+            <div className="piggy-bank-container animate-float relative">
+              <svg
+                viewBox="0 0 200 200"
+                className="w-full h-auto"
+                style={{ filter: "drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25))" }}
+              >
+                {/* Piggy Bank Body */}
+                <circle cx="100" cy="100" r="80" fill="#FF69B4" className="animate-bounce" />
+                {/* Ears */}
+                <circle cx="60" cy="50" r="15" fill="#FF69B4" />
+                <circle cx="140" cy="50" r="15" fill="#FF69B4" />
+                {/* Nose */}
+                <circle cx="100" cy="90" r="20" fill="#FFB6C6" />
+                {/* Eyes */}
+                <circle cx="80" cy="70" r="8" fill="#333" />
+                <circle cx="120" cy="70" r="8" fill="#333" />
+                {/* Slot */}
+                <rect x="85" y="40" width="30" height="5" fill="#333" />
+                {/* Coins Animation */}
+                <circle cx="50" cy="150" r="10" fill="gold" className="animate-bounce" style={{ animationDelay: "0.1s" }} />
+                <circle cx="80" cy="160" r="10" fill="gold" className="animate-bounce" style={{ animationDelay: "0.2s" }} />
+                <circle cx="110" cy="150" r="10" fill="gold" className="animate-bounce" style={{ animationDelay: "0.3s" }} />
+                <circle cx="140" cy="160" r="10" fill="gold" className="animate-bounce" style={{ animationDelay: "0.4s" }} />
+              </svg>
+            </div>
             <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-lg" />
-            <img
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
-              alt="Financial Growth"
-              className="w-full h-auto rounded-lg shadow-2xl"
-            />
           </div>
         </div>
       </div>

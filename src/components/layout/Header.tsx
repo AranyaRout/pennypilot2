@@ -1,5 +1,6 @@
 import { Bell, Gem } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Logo } from "@/components/Logo";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,9 +13,9 @@ export const Header = () => {
   return (
     <header className="fixed top-0 right-0 left-0 lg:left-64 h-16 bg-white dark:bg-gray-900 border-b z-30">
       <div className="flex items-center justify-between h-full px-4">
-        <h1 className="text-xl font-semibold text-primary lg:hidden">
-          PennyPilot
-        </h1>
+        <div className="lg:hidden">
+          <Logo />
+        </div>
 
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 bg-secondary/20 px-3 py-1.5 rounded-full">

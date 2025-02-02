@@ -1,18 +1,18 @@
-import { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Logo } from "@/components/Logo";
 import { toast } from "sonner";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // TODO: Implement actual authentication
+    // Mock login - in a real app, this would call an API
     if (email && password) {
       toast.success("Successfully logged in!");
       navigate("/dashboard");
@@ -22,44 +22,53 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-primary p-4">
-      <div className="w-full max-w-md space-y-8">
-        <div className="flex flex-col items-center">
+    <div className="min-h-screen bg-gradient-primary flex items-center justify-center p-4">
+      <div className="w-full max-w-md space-y-8 bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-xl animate-fade-in">
+        <div className="flex flex-col items-center gap-4">
           <Logo />
-          <h2 className="mt-6 text-3xl font-bold text-white">Welcome back!</h2>
-          <p className="mt-2 text-white/80">
-            Sign in to continue your financial journey
-          </p>
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+            Welcome back
+          </h2>
         </div>
 
-        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
-          <div className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="space-y-2">
+            <label
+              htmlFor="email"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Email
+            </label>
             <Input
+              id="email"
               type="email"
-              placeholder="Email address"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="bg-white/10 text-white placeholder:text-white/60 border-white/20"
-            />
-            <Input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="bg-white/10 text-white placeholder:text-white/60 border-white/20"
+              placeholder="Enter your email"
+              className="w-full"
             />
           </div>
 
-          <Button type="submit" className="w-full" size="lg">
+          <div className="space-y-2">
+            <label
+              htmlFor="password"
+              className="text-sm font-medium text-gray-700 dark:text-gray-300"
+            >
+              Password
+            </label>
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Enter your password"
+              className="w-full"
+            />
+          </div>
+
+          <Button type="submit" className="w-full">
             Sign in
           </Button>
-
-          <p className="text-center text-white/80">
-            Don't have an account?{" "}
-            <Link to="/signup" className="text-accent-cyan hover:underline">
-              Sign up
-            </Link>
-          </p>
         </form>
       </div>
     </div>

@@ -7,6 +7,11 @@ import Index from "./pages/Index";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
+import ExpenseTracker from "./pages/ExpenseTracker";
+import Learn from "./pages/Learn";
+import Rewards from "./pages/Rewards";
+import Shop from "./pages/Shop";
+import Settings from "./pages/Settings";
 import { Layout } from "./components/layout/Layout";
 
 const queryClient = new QueryClient();
@@ -26,6 +31,46 @@ const App = () => (
             element={
               <Layout>
                 <Dashboard />
+              </Layout>
+            }
+          />
+          <Route
+            path="/expenses"
+            element={
+              <Layout>
+                <ExpenseTracker />
+              </Layout>
+            }
+          />
+          <Route
+            path="/learn"
+            element={
+              <Layout>
+                <Learn />
+              </Layout>
+            }
+          />
+          <Route
+            path="/rewards"
+            element={
+              <Layout>
+                <Rewards />
+              </Layout>
+            }
+          />
+          <Route
+            path="/shop"
+            element={
+              <Layout>
+                <Shop />
+              </Layout>
+            }
+          />
+          <Route
+            path="/settings"
+            element={
+              <Layout>
+                <Settings />
               </Layout>
             }
           />

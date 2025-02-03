@@ -1,33 +1,45 @@
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, DollarSign, Gem, ChartBar } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
 
-const Index = () => {
+const features = [
+  {
+    title: "Smart Budgeting",
+    description: "Track your expenses and create intelligent budgets.",
+  },
+  {
+    title: "Investment Learning",
+    description: "Learn about investments through interactive lessons.",
+  },
+  {
+    title: "Financial Goals",
+    description: "Set and achieve your financial goals with guidance.",
+  },
+];
+
+const Landing = () => {
   return (
     <div className="min-h-screen bg-gradient-primary">
-      <div className="container mx-auto px-4 py-12 lg:py-24">
+      <div className="container mx-auto px-4 h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8">
-            <h1 className="text-6xl lg:text-8xl font-bold text-white animate-float">
-              Penny
-              <span className="bg-gradient-to-r from-accent-cyan to-accent-pink bg-clip-text text-transparent">
-                Pilot
-              </span>
+          <div className="text-white space-y-6">
+            <h1 className="text-5xl lg:text-7xl font-bold font-poppins animate-float">
+              PennyPilot
             </h1>
-            <p className="text-2xl text-white/90 animate-fade-in">
-              Smart Money, <span className="text-accent-cyan">Smart Future!</span>
+            <p className="text-xl lg:text-2xl opacity-90">
+              Smart Money, Smart Future!
             </p>
-            <p className="text-lg text-white/80">
-              Join PennyPilot and start your journey to financial literacy. Learn,
-              track expenses, earn rewards, and make smarter financial decisions.
+            <p className="text-lg opacity-80">
+              Your personal guide to financial literacy. Learn, track, and grow
+              your wealth with our interactive platform.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex gap-4 pt-4">
               <Button
                 size="lg"
-                className="bg-accent-cyan hover:bg-accent-cyan/90 text-black font-semibold group animate-fade-in"
+                className="bg-white text-primary hover:bg-gray-100"
                 asChild
               >
-                <Link to="/login">
+                <Link to="/signup">
                   Get Started
                   <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Link>
@@ -35,38 +47,11 @@ const Index = () => {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:bg-white/10 animate-fade-in"
+                className="text-white border-white hover:bg-white/10"
                 asChild
               >
                 <Link to="/login">Already have an account?</Link>
               </Button>
-            </div>
-            <div className="grid grid-cols-3 gap-4 pt-8">
-              {[
-                {
-                  icon: DollarSign,
-                  text: "Track Expenses",
-                },
-                {
-                  icon: Gem,
-                  text: "Earn Rewards",
-                },
-                {
-                  icon: ChartBar,
-                  text: "View Progress",
-                },
-              ].map((feature, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col items-center gap-2 text-white p-4 rounded-lg bg-white/10 backdrop-blur-sm animate-fade-in"
-                  style={{
-                    animationDelay: `${index * 200}ms`,
-                  }}
-                >
-                  <feature.icon className="w-8 h-8 text-accent-cyan" />
-                  <span className="text-sm font-medium">{feature.text}</span>
-                </div>
-              ))}
             </div>
           </div>
           <div className="hidden lg:block relative">
@@ -95,7 +80,6 @@ const Index = () => {
                 <circle cx="140" cy="160" r="10" fill="gold" className="animate-bounce" style={{ animationDelay: "0.4s" }} />
               </svg>
             </div>
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent rounded-lg" />
           </div>
         </div>
       </div>
@@ -103,4 +87,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Landing;

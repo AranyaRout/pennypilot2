@@ -7,6 +7,7 @@ import ProfileSetup from "@/components/onboarding/ProfileSetup";
 import ProfessionSelection from "@/components/onboarding/ProfessionSelection";
 import LearningPreferences from "@/components/onboarding/LearningPreferences";
 import SkillLevel from "@/components/onboarding/SkillLevel";
+import IncomeSetup from "@/components/onboarding/IncomeSetup";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -14,6 +15,7 @@ const steps = [
   "Account Creation",
   "Profile Setup",
   "Profession",
+  "Income Setup",
   "Learning Style",
   "Skill Level",
 ];
@@ -59,8 +61,9 @@ const Signup = () => {
               {currentStep === 1 && <AccountCreation />}
               {currentStep === 2 && <ProfileSetup />}
               {currentStep === 3 && <ProfessionSelection />}
-              {currentStep === 4 && <LearningPreferences />}
-              {currentStep === 5 && <SkillLevel />}
+              {currentStep === 4 && <IncomeSetup />}
+              {currentStep === 5 && <LearningPreferences />}
+              {currentStep === 6 && <SkillLevel />}
             </div>
 
             <div className="hidden md:block">

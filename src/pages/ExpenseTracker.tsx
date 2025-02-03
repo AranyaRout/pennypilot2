@@ -10,26 +10,80 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useState } from "react";
-import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { Plus, DollarSign, PieChart, ArrowUpCircle, ArrowDownCircle } from "lucide-react";
+import { toast } from "sonner";
+
+interface Expense {
+  id: string;
+  category: string;
+  amount: number;
+  date: string;
+  description: string;
+}
+
+const categories = [
+  "Food & Dining",
+  "Transportation",
+  "Entertainment",
+  "Shopping",
+  "Bills & Utilities",
+  "Education",
+  "Healthcare",
+  "Other"
+];
 
 const ExpenseTracker = () => {
   const [category, setCategory] = useState("");
   const [amount, setAmount] = useState("");
+  const [description, setDescription] = useState("");
+  const [expenses, setExpenses] = useState<Expense[]>([]);
 
-  const data = [
-    { name: "Food", amount: 300 },
-    { name: "Transport", amount: 200 },
-    { name: "Entertainment", amount: 150 },
-    { name: "Shopping", amount: 250 },
-  ];
+  const handleAddExpense = () => {
+    if (!category || !amount || !description) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+
+    const newExpense: Expense = {
+      id: Date.now().toString(),
+      category,
+      amount: parseFloat(amount),
+      date: new Date().toISOString(),
+      description
+    };
+
+    setExpenses([...expenses, newExpense]);
+    setCategory("");
+    setAmount("");
+    setDescription("");
+    toast.success("Expense added successfully!");
+  };
+
+  const totalExpenses = expenses.reduce((acc, curr) => acc + curr.amount, 0);
+
+  const chartData = categories.map(cat => ({
+    name: cat,
+    amount: expenses
+      .filter(exp => exp.category === cat)
+      .reduce((acc, curr) => acc + curr.amount, 0)
+  })).filter(data => data.amount > 0);
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <h2 className="text-3xl font-bold">Expense Tracker</h2>
+    <div className="space-y-8 p-6 animate-fade-in">
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl font-bold">Expense Tracker</h2>
+        <Card className="p-4 bg-primary/10">
+          <div className="flex items-center space-x-2">
+            <DollarSign className="text-primary" />
+            <span className="font-semibold">Total: ${totalExpenses.toFixed(2)}</span>
+          </div>
+        </Card>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <Card className="p-6">
-          <h3 className="text-xl font-semibold mb-4">Add Expense</h3>
+          <h3 className="text-xl font-semibold mb-4">Add New Expense</h3>
           <div className="space-y-4">
             <div>
               <Label>Category</Label>
@@ -38,13 +92,15 @@ const ExpenseTracker = () => {
                   <SelectValue placeholder="Select category" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="food">Food</SelectItem>
-                  <SelectItem value="transport">Transport</SelectItem>
-                  <SelectItem value="entertainment">Entertainment</SelectItem>
-                  <SelectItem value="shopping">Shopping</SelectItem>
+                  {categories.map((cat) => (
+                    <SelectItem key={cat} value={cat}>
+                      {cat}
+                    </SelectItem>
+                  ))}
                 </SelectContent>
               </Select>
             </div>
+
             <div>
               <Label>Amount</Label>
               <div className="relative">
@@ -58,44 +114,58 @@ const ExpenseTracker = () => {
                 />
               </div>
             </div>
-            <Button className="w-full">Add Expense</Button>
+
+            <div>
+              <Label>Description</Label>
+              <Input
+                placeholder="Enter description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
+            </div>
+
+            <Button onClick={handleAddExpense} className="w-full">
+              <Plus className="mr-2 h-4 w-4" /> Add Expense
+            </Button>
           </div>
         </Card>
 
         <Card className="p-6">
           <h3 className="text-xl font-semibold mb-4">Spending Overview</h3>
-          <BarChart width={400} height={300} data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="amount" fill="#6A0DAD" />
-          </BarChart>
+          <ResponsiveContainer width="100%" height={300}>
+            <BarChart data={chartData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="name" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="amount" fill="#6A0DAD" />
+            </BarChart>
+          </ResponsiveContainer>
         </Card>
       </div>
 
-      <div className="hidden md:block">
-        <svg viewBox="0 0 200 200" className="w-64 h-64 mx-auto">
-          <circle
-            cx="100"
-            cy="100"
-            r="50"
-            fill="#D8BFD8"
-            className="animate-bounce"
-          />
-          {[0, 1, 2].map((i) => (
-            <circle
-              key={i}
-              cx={80 + i * 20}
-              cy={60 + i * 10}
-              r="10"
-              fill="#FFD700"
-              className="animate-bounce"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            />
+      <Card className="p-6">
+        <h3 className="text-xl font-semibold mb-4">Recent Expenses</h3>
+        <div className="space-y-4">
+          {expenses.map((expense) => (
+            <div
+              key={expense.id}
+              className="flex items-center justify-between p-4 bg-secondary/10 rounded-lg"
+            >
+              <div className="space-y-1">
+                <p className="font-semibold">{expense.category}</p>
+                <p className="text-sm text-gray-500">{expense.description}</p>
+              </div>
+              <div className="text-right">
+                <p className="font-semibold">${expense.amount.toFixed(2)}</p>
+                <p className="text-sm text-gray-500">
+                  {new Date(expense.date).toLocaleDateString()}
+                </p>
+              </div>
+            </div>
           ))}
-        </svg>
-      </div>
+        </div>
+      </Card>
     </div>
   );
 };

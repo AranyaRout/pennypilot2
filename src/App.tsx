@@ -12,6 +12,7 @@ import Learn from "./pages/Learn";
 import Rewards from "./pages/Rewards";
 import Shop from "./pages/Shop";
 import Settings from "./pages/Settings";
+import QuizPage from "./pages/QuizPage";
 import { Layout } from "./components/layout/Layout";
 
 const queryClient = new QueryClient();
@@ -47,6 +48,14 @@ const App = () => (
             element={
               <Layout>
                 <Learn />
+              </Layout>
+            }
+          />
+          <Route
+            path="/quiz/:level"
+            element={
+              <Layout>
+                <QuizPage />
               </Layout>
             }
           />

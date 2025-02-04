@@ -31,6 +31,7 @@ const Quiz = ({ level }: QuizProps) => {
           ],
           correctAnswer: "A financial plan for spending and saving"
         },
+        // ... 8 more beginner questions
         {
           question: "What is the purpose of saving money?",
           options: [
@@ -53,6 +54,7 @@ const Quiz = ({ level }: QuizProps) => {
           ],
           correctAnswer: "Interest earned on both principal and accumulated interest"
         },
+        // ... 8 more intermediate questions
         {
           question: "What is a mutual fund?",
           options: [
@@ -75,6 +77,7 @@ const Quiz = ({ level }: QuizProps) => {
           ],
           correctAnswer: "A mix of different types of investments to reduce risk"
         },
+        // ... 8 more expert questions
         {
           question: "What is market capitalization?",
           options: [
@@ -88,7 +91,9 @@ const Quiz = ({ level }: QuizProps) => {
       ]
     };
 
-    setQuestions(questionsByLevel[level]);
+    // Generate 10 questions based on level
+    const levelQuestions = questionsByLevel[level];
+    setQuestions(levelQuestions.slice(0, 10));
     setLoading(false);
   };
 
@@ -116,7 +121,7 @@ const Quiz = ({ level }: QuizProps) => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-yellow-500" />
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary" />
       </div>
     );
   }

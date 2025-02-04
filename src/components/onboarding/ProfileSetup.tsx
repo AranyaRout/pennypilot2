@@ -4,7 +4,7 @@ import { Slider } from "@/components/ui/slider";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Camera, Wand2 } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
 
 const ProfileSetup = () => {
@@ -13,6 +13,18 @@ const ProfileSetup = () => {
   const [age, setAge] = useState(25);
   const [avatarUrl, setAvatarUrl] = useState("");
   const [isGenerating, setIsGenerating] = useState(false);
+  const [animationClass, setAnimationClass] = useState("animate-bounce");
+
+  useEffect(() => {
+    // Set animation based on age
+    if (age >= 13 && age <= 17) {
+      setAnimationClass("animate-bounce");
+    } else if (age > 17 && age <= 40) {
+      setAnimationClass("animate-float");
+    } else {
+      setAnimationClass("animate-coin-spin");
+    }
+  }, [age]);
 
   const handleAvatarUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -28,8 +40,6 @@ const ProfileSetup = () => {
   const generateAIAvatar = async () => {
     setIsGenerating(true);
     try {
-      // Using DiceBear API for avatar generation as a placeholder
-      // You can replace this with any other AI avatar generation API
       const seed = Math.random().toString(36).substring(7);
       const style = ["adventurer", "avataaars", "bottts", "personas"][Math.floor(Math.random() * 4)];
       const newAvatarUrl = `https://api.dicebear.com/7.x/${style}/svg?seed=${seed}`;
@@ -45,7 +55,7 @@ const ProfileSetup = () => {
   return (
     <div className="space-y-6">
       <div className="flex flex-col items-center space-y-4">
-        <Avatar className="h-24 w-24">
+        <Avatar className={`h-24 w-24 ${animationClass}`}>
           <AvatarImage src={avatarUrl} />
           <AvatarFallback className="bg-primary/10">
             {fullName ? fullName.charAt(0).toUpperCase() : "U"}

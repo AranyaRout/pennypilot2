@@ -20,28 +20,28 @@ const Learn = () => {
       level: "intermediate"
     },
     {
+      title: "Smart Saving Strategies",
+      description: "Learn effective methods to save money, create emergency funds, and achieve your financial goals faster.",
+      type: "article",
+      level: "beginner"
+    },
+    {
       title: "Advanced Market Analysis",
       description: "Deep dive into market trends, technical analysis, and advanced investment strategies.",
       type: "article",
       level: "expert"
     },
     {
-      title: "Smart Saving Strategies",
-      description: "Discover effective ways to save money and build your emergency fund.",
+      title: "Digital Banking & Savings",
+      description: "Explore modern banking tools and apps that can help automate your savings and maximize returns.",
       type: "video",
       level: "beginner"
     },
     {
-      title: "Understanding Cryptocurrencies",
-      description: "Learn about digital currencies and blockchain technology.",
+      title: "Tax-Efficient Saving Methods",
+      description: "Discover ways to save money while optimizing your tax benefits through various investment vehicles.",
       type: "article",
       level: "intermediate"
-    },
-    {
-      title: "Tax Planning Essentials",
-      description: "Maximize your tax benefits with smart financial planning.",
-      type: "video",
-      level: "expert"
     }
   ];
 
@@ -50,10 +50,10 @@ const Learn = () => {
   };
 
   return (
-    <div className="space-y-8 animate-fade-in">
-      <div className="flex items-center justify-between">
-        <h2 className="text-3xl font-bold">Learn</h2>
-        <div className="flex gap-2">
+    <div className="space-y-8">
+      <div className="flex items-center justify-between flex-wrap gap-4">
+        <h2 className="text-3xl font-bold tracking-tight">Learn</h2>
+        <div className="flex gap-2 flex-wrap">
           <Button onClick={() => handleStartQuiz("beginner")} variant="outline">
             Beginner Quiz
           </Button>
@@ -70,20 +70,22 @@ const Learn = () => {
         {articles.map((article, index) => (
           <Card
             key={index}
-            className="hover:shadow-lg transition-shadow cursor-pointer group"
+            className="hover:shadow-lg transition-shadow cursor-pointer group overflow-hidden"
           >
             <CardHeader>
-              <CardTitle className="flex items-center gap-2">
+              <CardTitle className="flex items-center gap-2 text-lg leading-tight">
                 {article.type === "article" ? (
-                  <BookOpen className="w-5 h-5" />
+                  <BookOpen className="w-5 h-5 flex-shrink-0" />
                 ) : (
-                  <Video className="w-5 h-5" />
+                  <Video className="w-5 h-5 flex-shrink-0" />
                 )}
-                {article.title}
+                <span className="line-clamp-2">{article.title}</span>
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-600 mb-4">{article.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3">
+                {article.description}
+              </p>
               <div className="flex items-center justify-between">
                 <span className="text-sm text-primary capitalize">{article.level}</span>
                 <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />

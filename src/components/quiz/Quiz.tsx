@@ -31,7 +31,16 @@ const Quiz = ({ level }: QuizProps) => {
           ],
           correctAnswer: "A financial plan for spending and saving"
         },
-        // ... Add more questions
+        {
+          question: "What is the purpose of saving money?",
+          options: [
+            "To achieve financial goals and security",
+            "To spend more later",
+            "To avoid using banks",
+            "To pay more taxes"
+          ],
+          correctAnswer: "To achieve financial goals and security"
+        },
       ],
       intermediate: [
         {
@@ -44,7 +53,16 @@ const Quiz = ({ level }: QuizProps) => {
           ],
           correctAnswer: "Interest earned on both principal and accumulated interest"
         },
-        // ... Add more questions
+        {
+          question: "What is a mutual fund?",
+          options: [
+            "A pool of money from multiple investors",
+            "A savings account",
+            "A type of credit card",
+            "A government bond"
+          ],
+          correctAnswer: "A pool of money from multiple investors"
+        },
       ],
       expert: [
         {
@@ -57,7 +75,16 @@ const Quiz = ({ level }: QuizProps) => {
           ],
           correctAnswer: "A mix of different types of investments to reduce risk"
         },
-        // ... Add more questions
+        {
+          question: "What is market capitalization?",
+          options: [
+            "Total value of a company's outstanding shares",
+            "Company's annual profit",
+            "Stock market index",
+            "Daily trading volume"
+          ],
+          correctAnswer: "Total value of a company's outstanding shares"
+        },
       ]
     };
 
@@ -77,11 +104,11 @@ const Quiz = ({ level }: QuizProps) => {
       toast.error("Wrong answer!");
     }
 
-    if (currentQuestion < 9) {
+    if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
       // Quiz completed
-      toast.success(`Quiz completed! Your score: ${score}/10`);
+      toast.success(`Quiz completed! Your score: ${score}/${questions.length}`);
       setTimeout(() => navigate("/learn"), 2000);
     }
   };
@@ -101,11 +128,11 @@ const Quiz = ({ level }: QuizProps) => {
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Learn
         </Button>
         <div className="text-sm font-medium">
-          Question {currentQuestion + 1}/10
+          Question {currentQuestion + 1}/{questions.length}
         </div>
       </div>
 
-      <Progress value={(currentQuestion / 10) * 100} className="mb-6" />
+      <Progress value={(currentQuestion / questions.length) * 100} className="mb-6" />
 
       {questions[currentQuestion] && (
         <QuizQuestion
@@ -117,7 +144,7 @@ const Quiz = ({ level }: QuizProps) => {
       )}
 
       <div className="text-center mt-4">
-        <p className="text-sm text-gray-500">Current Score: {score}/10</p>
+        <p className="text-sm text-gray-500">Current Score: {score}/{questions.length}</p>
       </div>
     </div>
   );

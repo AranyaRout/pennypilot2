@@ -4,15 +4,40 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useState } from "react";
-import { Settings as SettingsIcon, Moon, Sun } from "lucide-react";
+import { Settings as SettingsIcon, Moon, Sun, LogOut } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { useNavigate } from "react-router-dom";
+import { toast } from "sonner";
 
 const Settings = () => {
   const [darkMode, setDarkMode] = useState(false);
   const [notifications, setNotifications] = useState(true);
+  const [displayName, setDisplayName] = useState("John Doe");
+  const [email, setEmail] = useState("john@example.com");
+  const navigate = useNavigate();
+
+  const handleDarkModeToggle = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle("dark");
+    toast.success(`${darkMode ? "Light" : "Dark"} mode enabled`);
+  };
+
+  const handleSignOut = () => {
+    // Clear any stored user data/tokens
+    localStorage.clear();
+    toast.success("Signed out successfully");
+    navigate("/login");
+  };
 
   return (
     <div className="space-y-8 animate-fade-in">
-      <h2 className="text-3xl font-bold">Settings</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl font-bold">Settings</h2>
+        <Button variant="destructive" onClick={handleSignOut}>
+          <LogOut className="mr-2 h-4 w-4" />
+          Sign Out
+        </Button>
+      </div>
 
       <div className="grid md:grid-cols-2 gap-6">
         <Card>
@@ -20,13 +45,28 @@ const Settings = () => {
             <CardTitle>Profile Settings</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div className="flex justify-center mb-6">
+              <Avatar className="h-24 w-24">
+                <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=John" />
+                <AvatarFallback>JD</AvatarFallback>
+              </Avatar>
+            </div>
             <div>
               <Label>Display Name</Label>
-              <Input placeholder="Your name" />
+              <Input 
+                placeholder="Your name" 
+                value={displayName}
+                onChange={(e) => setDisplayName(e.target.value)}
+              />
             </div>
             <div>
               <Label>Email</Label>
-              <Input type="email" placeholder="your@email.com" />
+              <Input 
+                type="email" 
+                placeholder="your@email.com"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
             </div>
             <Button>Save Changes</Button>
           </CardContent>
@@ -46,7 +86,7 @@ const Settings = () => {
               </div>
               <Switch
                 checked={darkMode}
-                onCheckedChange={setDarkMode}
+                onCheckedChange={handleDarkModeToggle}
                 className="data-[state=checked]:bg-primary"
               />
             </div>
@@ -65,34 +105,6 @@ const Settings = () => {
             </div>
           </CardContent>
         </Card>
-      </div>
-
-      <div className="hidden md:block">
-        <svg viewBox="0 0 200 200" className="w-64 h-64 mx-auto">
-          <circle
-            cx="100"
-            cy="100"
-            r="60"
-            fill="none"
-            stroke="#6A0DAD"
-            strokeWidth="4"
-            className="animate-spin"
-            style={{ transformOrigin: "center", animationDuration: "3s" }}
-          />
-          {[0, 1, 2].map((i) => (
-            <circle
-              key={i}
-              cx="100"
-              cy="100"
-              r={40 - i * 10}
-              fill="none"
-              stroke="#D8BFD8"
-              strokeWidth="2"
-              className="animate-pulse"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            />
-          ))}
-        </svg>
       </div>
     </div>
   );

@@ -1,34 +1,76 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { BookOpen, Video } from "lucide-react";
+import { BookOpen, Video, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const Learn = () => {
+  const navigate = useNavigate();
+  
   const articles = [
     {
       title: "Budgeting Basics",
-      description: "Learn the fundamentals of creating a budget",
+      description: "Master the fundamentals of creating and maintaining a budget that works for you. Learn essential strategies for financial success.",
       type: "article",
+      level: "beginner"
     },
     {
       title: "Investment 101",
-      description: "Understanding different investment options",
+      description: "Understand different investment options and how to build a strong investment portfolio for long-term growth.",
       type: "video",
+      level: "intermediate"
     },
     {
-      title: "Saving Strategies",
-      description: "Smart ways to save money effectively",
+      title: "Advanced Market Analysis",
+      description: "Deep dive into market trends, technical analysis, and advanced investment strategies.",
       type: "article",
+      level: "expert"
     },
+    {
+      title: "Smart Saving Strategies",
+      description: "Discover effective ways to save money and build your emergency fund.",
+      type: "video",
+      level: "beginner"
+    },
+    {
+      title: "Understanding Cryptocurrencies",
+      description: "Learn about digital currencies and blockchain technology.",
+      type: "article",
+      level: "intermediate"
+    },
+    {
+      title: "Tax Planning Essentials",
+      description: "Maximize your tax benefits with smart financial planning.",
+      type: "video",
+      level: "expert"
+    }
   ];
+
+  const handleStartQuiz = (level: string) => {
+    navigate(`/quiz/${level}`);
+  };
 
   return (
     <div className="space-y-8 animate-fade-in">
-      <h2 className="text-3xl font-bold">Learn</h2>
+      <div className="flex items-center justify-between">
+        <h2 className="text-3xl font-bold">Learn</h2>
+        <div className="flex gap-2">
+          <Button onClick={() => handleStartQuiz("beginner")} variant="outline">
+            Beginner Quiz
+          </Button>
+          <Button onClick={() => handleStartQuiz("intermediate")} variant="outline">
+            Intermediate Quiz
+          </Button>
+          <Button onClick={() => handleStartQuiz("expert")} variant="outline">
+            Expert Quiz
+          </Button>
+        </div>
+      </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article, index) => (
           <Card
             key={index}
-            className="hover:shadow-lg transition-shadow cursor-pointer"
+            className="hover:shadow-lg transition-shadow cursor-pointer group"
           >
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -41,7 +83,11 @@ const Learn = () => {
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-gray-600">{article.description}</p>
+              <p className="text-gray-600 mb-4">{article.description}</p>
+              <div className="flex items-center justify-between">
+                <span className="text-sm text-primary capitalize">{article.level}</span>
+                <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </CardContent>
           </Card>
         ))}

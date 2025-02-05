@@ -11,7 +11,7 @@ const Landing = () => {
           <div className="text-white space-y-6">
             <div className="flex items-center gap-3 mb-8">
               <div className="relative">
-                <Rocket size={48} className="animate-bounce text-white" />
+                <Rocket size={48} className="animate-bounce text-white z-10" />
                 <Coins size={32} className="absolute -bottom-2 -right-2 text-yellow-400 animate-pulse" />
               </div>
               <h1 className="text-5xl lg:text-7xl font-bold font-poppins">

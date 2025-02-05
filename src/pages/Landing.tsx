@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket, Sparkles, Coins, ChartLineUp } from "lucide-react";
+import { ArrowRight, Rocket, Sparkles, Coins, ChartLine } from "lucide-react";
 
 const Landing = () => {
   return (
@@ -53,7 +53,7 @@ const Landing = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="space-y-4">
                     <div className="bg-white/20 p-6 rounded-lg transform hover:scale-105 transition-all duration-300 group">
-                      <ChartLineUp className="w-12 h-12 text-green-400 mb-4 animate-bounce" />
+                      <ChartLine className="w-12 h-12 text-green-400 mb-4 animate-bounce" />
                       <h3 className="text-white font-semibold">Track Growth</h3>
                       <p className="text-white/80 text-sm">Monitor your financial progress</p>
                     </div>

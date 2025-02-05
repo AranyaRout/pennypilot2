@@ -1,3 +1,4 @@
+
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -22,7 +23,7 @@ const ProfileSetup = () => {
     } else if (age > 17 && age <= 40) {
       setAnimationClass("animate-float");
     } else {
-      setAnimationClass("animate-coin-spin");
+      setAnimationClass("animate-pulse");
     }
   }, [age]);
 
@@ -32,6 +33,7 @@ const ProfileSetup = () => {
       const reader = new FileReader();
       reader.onloadend = () => {
         setAvatarUrl(reader.result as string);
+        toast.success("Avatar uploaded successfully!");
       };
       reader.readAsDataURL(file);
     }
@@ -55,7 +57,7 @@ const ProfileSetup = () => {
   return (
     <div className="space-y-6">
       <div className="flex flex-col items-center space-y-4">
-        <Avatar className={`h-24 w-24 ${animationClass}`}>
+        <Avatar className={`h-24 w-24 ${animationClass} transition-all duration-500`}>
           <AvatarImage src={avatarUrl} />
           <AvatarFallback className="bg-primary/10">
             {fullName ? fullName.charAt(0).toUpperCase() : "U"}
@@ -71,7 +73,7 @@ const ProfileSetup = () => {
           />
           <Label
             htmlFor="avatar-upload"
-            className="cursor-pointer flex items-center space-x-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground px-4 py-2 rounded-md"
+            className="cursor-pointer flex items-center space-x-2 bg-secondary hover:bg-secondary/80 text-secondary-foreground px-4 py-2 rounded-md transition-all duration-300"
           >
             <Camera className="h-4 w-4" />
             <span>Upload Photo</span>
@@ -80,7 +82,7 @@ const ProfileSetup = () => {
             variant="outline"
             onClick={generateAIAvatar}
             disabled={isGenerating}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 transition-all duration-300"
           >
             <Wand2 className="h-4 w-4" />
             <span>{isGenerating ? "Generating..." : "Generate AI Avatar"}</span>
@@ -95,6 +97,7 @@ const ProfileSetup = () => {
           placeholder="Enter your full name"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
+          className="transition-all duration-300 focus:ring-2 focus:ring-primary"
         />
       </div>
 
@@ -105,6 +108,7 @@ const ProfileSetup = () => {
           placeholder="Choose a username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
+          className="transition-all duration-300 focus:ring-2 focus:ring-primary"
         />
       </div>
 
@@ -116,6 +120,7 @@ const ProfileSetup = () => {
           min={13}
           max={65}
           step={1}
+          className="transition-all duration-300"
         />
       </div>
     </div>

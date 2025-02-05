@@ -1,15 +1,33 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const AccountCreation = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleGoogleSignIn = () => {
+    toast.info("Google Sign In will be implemented in the next iteration");
+  };
+
+  const handleEmailSignup = () => {
+    if (!email || !password) {
+      toast.error("Please fill in all fields");
+      return;
+    }
+    toast.success("Account created successfully!");
+  };
+
   return (
-    <div className="space-y-4">
-      <Button variant="outline" className="w-full">
+    <div className="space-y-6">
+      <Button 
+        variant="outline" 
+        className="w-full hover:bg-secondary/80 transition-all duration-300"
+        onClick={handleGoogleSignIn}
+      >
         <img src="/google.svg" alt="Google" className="w-5 h-5 mr-2" />
         Continue with Google
       </Button>
@@ -34,6 +52,7 @@ const AccountCreation = () => {
             placeholder="Enter your email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            className="transition-all duration-300 focus:ring-2 focus:ring-primary"
           />
         </div>
 
@@ -45,8 +64,16 @@ const AccountCreation = () => {
             placeholder="Create a password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="transition-all duration-300 focus:ring-2 focus:ring-primary"
           />
         </div>
+
+        <Button 
+          className="w-full mt-4 transition-all duration-300"
+          onClick={handleEmailSignup}
+        >
+          Create Account
+        </Button>
       </div>
     </div>
   );

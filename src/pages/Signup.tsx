@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Progress } from "@/components/ui/progress";
 import { Button } from "@/components/ui/button";
@@ -19,6 +20,15 @@ const steps = [
   "Learning Style",
   "Skill Level",
 ];
+
+const stepAnimations = {
+  1: "/animations/coin-stack.gif",
+  2: "/animations/piggy-bank.gif",
+  3: "/animations/career-path.gif",
+  4: "/animations/income.gif",
+  5: "/animations/calendar-clock.gif",
+  6: "/animations/skill-level.gif",
+};
 
 const Signup = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -44,7 +54,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/90 via-accent-pink/80 to-accent-cyan/90">
       <div className="container mx-auto px-4 min-h-screen flex items-center justify-center">
-        <div className="w-full max-w-4xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-2xl p-8 animate-fade-in">
+        <div className="w-full max-w-4xl bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl rounded-2xl shadow-2xl p-8">
           <div className="space-y-6">
             <div className="space-y-2">
               <div className="flex items-center justify-between">
@@ -70,25 +80,11 @@ const Signup = () => {
               </div>
 
               <div className="hidden md:flex items-center justify-center">
-                <div className="relative w-full max-w-md">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-primary to-accent-pink rounded-lg blur opacity-75 animate-pulse"></div>
-                  <div className="relative bg-white/20 dark:bg-gray-800/20 backdrop-blur-xl rounded-lg p-6">
-                    <div className="space-y-4">
-                      {[1, 2, 3].map((i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-4 transform hover:scale-105 transition-all duration-300"
-                        >
-                          <div className="w-10 h-10 rounded-full bg-primary/20 animate-bounce" style={{ animationDelay: `${i * 0.2}s` }}></div>
-                          <div className="flex-1 space-y-2">
-                            <div className="h-2 bg-primary/20 rounded"></div>
-                            <div className="h-2 bg-primary/20 rounded w-2/3"></div>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src={stepAnimations[currentStep as keyof typeof stepAnimations]} 
+                  alt="Step animation" 
+                  className="max-w-full h-auto rounded-lg shadow-xl animate-float"
+                />
               </div>
             </div>
 

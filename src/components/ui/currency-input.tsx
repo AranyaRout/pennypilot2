@@ -2,7 +2,7 @@ import React from "react";
 import { Input } from "./input";
 
 interface CurrencyInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'onChange'> {
   value: string | number;
   onChange: (value: string) => void;
 }

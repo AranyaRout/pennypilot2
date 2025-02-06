@@ -1,4 +1,3 @@
-import React from "react";
 import { Input } from "./input";
 
 interface CurrencyInputProps
@@ -7,32 +6,26 @@ interface CurrencyInputProps
   onChange: (value: string) => void;
 }
 
-export const CurrencyInput = React.forwardRef<
-  HTMLInputElement,
-  CurrencyInputProps
->(({ value, onChange, ...props }, ref) => {
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/[^0-9.]/g, "");
+export function CurrencyInput({
+  value,
+  onChange,
+  ...props
+}: CurrencyInputProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value.replace(/[^0-9]/g, '');
     onChange(value);
   };
 
-  const formattedValue = typeof value === "number" ? value.toString() : value;
+  const formattedValue = value
+    ? `₹${Number(value).toLocaleString('en-IN')}`
+    : '₹0';
 
   return (
-    <div className="relative">
-      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
-        ₹
-      </span>
-      <Input
-        {...props}
-        ref={ref}
-        type="text"
-        value={formattedValue}
-        onChange={handleChange}
-        className="pl-7"
-      />
-    </div>
+    <Input
+      {...props}
+      value={formattedValue}
+      onChange={handleChange}
+      className="font-mono"
+    />
   );
-});
-
-CurrencyInput.displayName = "CurrencyInput";
+}

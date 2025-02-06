@@ -72,6 +72,6 @@
   }
 
   body {
-    @apply bg-background text-foreground font-poppins;
+    @apply bg-gradient-to-br from-white via-purple-50 to-purple-100 dark:from-gray-900 dark:via-purple-900/20 dark:to-gray-900 min-h-screen text-foreground font-poppins transition-colors duration-300;
   }
 }

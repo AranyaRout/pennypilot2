@@ -38,7 +38,7 @@ const IncomeSetup = () => {
         <div className="space-y-4">
           <Label>How much do you receive monthly?</Label>
           <div className="relative">
-            <span className="absolute left-3 top-2.5 text-gray-500">$</span>
+            <span className="absolute left-3 top-2.5 text-gray-500">₹</span>
             <Input
               type="number"
               placeholder="0.00"

@@ -82,6 +82,14 @@ export default {
           "0%": { transform: "rotateY(0deg)" },
           "100%": { transform: "rotateY(360deg)" },
         },
+        "calendar-spin": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
+        "path-progress": {
+          "0%": { strokeDashoffset: "1000" },
+          "100%": { strokeDashoffset: "0" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -90,6 +98,8 @@ export default {
         shimmer: "shimmer 2s infinite",
         bounce: "bounce 2s infinite",
         "coin-spin": "coin-spin 3s infinite",
+        "calendar-spin": "calendar-spin 10s linear infinite",
+        "path-progress": "path-progress 2s ease-out forwards"
       },
       backgroundImage: {
         "gradient-primary": "linear-gradient(135deg, #6A0DAD 0%, #D8BFD8 100%)",

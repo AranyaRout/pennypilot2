@@ -57,51 +57,11 @@ const IncomeSetup = () => {
       </div>
 
       <div className="hidden md:flex items-center justify-center">
-        <div className="w-64 h-64">
-          <svg
-            viewBox="0 0 200 200"
-            className="w-full h-full"
-            style={{ overflow: "visible" }}
-          >
-            {/* Wallet */}
-            <rect
-              x="40"
-              y="60"
-              width="120"
-              height="80"
-              rx="10"
-              fill="#9b87f5"
-              className="animate-bounce"
-              style={{ animationDuration: "3s" }}
-            />
-            {/* Money bills */}
-            {[0, 1, 2].map((i) => (
-              <rect
-                key={i}
-                x="50"
-                y={70 + i * 15}
-                width="100"
-                height="10"
-                rx="2"
-                fill="#4CAF50"
-                className="animate-pulse"
-                style={{ animationDelay: `${i * 0.2}s` }}
-              />
-            ))}
-            {/* Coins */}
-            {[0, 1, 2].map((i) => (
-              <circle
-                key={i}
-                cx={160 - i * 25}
-                cy="130"
-                r="12"
-                fill="#FFD700"
-                className="animate-bounce"
-                style={{ animationDelay: `${i * 0.3}s` }}
-              />
-            ))}
-          </svg>
-        </div>
+        <img 
+          src="/animations/money.gif" 
+          alt="Money animation" 
+          className="w-64 h-64 object-contain animate-bounce"
+        />
       </div>
     </div>
   );

@@ -4,7 +4,8 @@ import { Briefcase, GraduationCap, School, User } from "lucide-react";
 
 const ProfessionSelection = () => {
   return (
-    <div className="space-y-6">
+    <div className="grid md:grid-cols-2 gap-8">
+      <div className="space-y-6">
       <Label className="text-lg font-semibold">Select your current status</Label>
       <RadioGroup defaultValue="school" className="space-y-4">
         <div className="flex items-center space-x-3 p-4 rounded-lg border hover:border-primary transition-colors">
@@ -39,22 +40,14 @@ const ProfessionSelection = () => {
           </Label>
         </div>
       </RadioGroup>
+      </div>
 
-      <div className="hidden md:block mt-8">
-        <svg viewBox="0 0 200 100" className="w-full h-32">
-          <path
-            d="M20,80 Q50,20 100,50 T180,80"
-            fill="none"
-            stroke="#6A0DAD"
-            strokeWidth="2"
-            className="animate-path-progress"
-            strokeDasharray="1000"
-            strokeDashoffset="1000"
-          />
-          <circle cx="20" cy="80" r="5" fill="#6A0DAD" className="animate-pulse" />
-          <circle cx="100" cy="50" r="5" fill="#6A0DAD" className="animate-bounce" />
-          <circle cx="180" cy="80" r="5" fill="#6A0DAD" className="animate-float" />
-        </svg>
+      <div className="hidden md:flex items-center justify-center">
+        <img 
+          src="/animations/career-path.gif" 
+          alt="Career path roadmap animation" 
+          className="w-64 h-64 object-contain animate-float"
+        />
       </div>
     </div>
   );

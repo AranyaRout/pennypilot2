@@ -1,4 +1,3 @@
-
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Slider } from "@/components/ui/slider";
@@ -121,6 +120,14 @@ const ProfileSetup = () => {
           max={65}
           step={1}
           className="transition-all duration-300"
+        />
+      </div>
+
+      <div className="hidden md:flex items-center justify-center">
+        <img 
+          src="/animations/piggy-bank.gif" 
+          alt="Growing piggy bank animation" 
+          className="w-64 h-64 object-contain animate-float"
         />
       </div>
     </div>

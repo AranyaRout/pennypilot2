@@ -92,7 +92,7 @@ const SignUp = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="space-y-6">
               <h2 className="text-2xl font-bold">Profile Setup</h2>
-              <div className="space-y-4">
+              <div className="space-y-1">
                 <div className="flex flex-col items-center gap-4">
                   <Avatar className="h-24 w-24">
                     {avatarUrl ? (

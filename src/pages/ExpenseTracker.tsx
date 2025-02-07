@@ -367,7 +367,7 @@ const ExpenseTracker = () => {
         <Card className="p-4 bg-primary/10">
           <div className="flex items-center space-x-2">
             <IndianRupee className="text-primary" />
-            <span className="font-semibold">Total: {totalExpenses.toFixed(2)}</span>
+            <span className="font-semibold">Expense: {totalExpenses.toFixed(2)}</span>
           </div>
         </Card>
       </div>

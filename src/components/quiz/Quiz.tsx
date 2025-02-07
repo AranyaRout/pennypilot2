@@ -95,29 +95,30 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is the benefit of paying bills on time?",
           options: [
-            "Avoid late fees and maintain a good credit score",
             "Get discounts on future purchases",
             "Earn reward points",
-            "Win a lottery"
+            "Win a lottery",
+            "Avoid late fees and maintain a good credit score",
           ],
           correctAnswer: "Avoid late fees and maintain a good credit score"
         },
         {
           question: "What is the difference between saving and investing?",
           options: [
-            "Saving is for short-term goals, investing is for long-term goals",
-            "Saving is riskier than investing",
-            "Saving earns higher returns than investing",
-            "Saving is only for emergencies"
+          "Saving is riskier than investing",
+          "Saving earns higher returns than investing",
+          "Saving is for short-term goals, investing is for long-term goals",
+          "Saving is only for emergencies"
           ],
           correctAnswer: "Saving is for short-term goals, investing is for long-term goals"
         },
         {
           question: "What is the purpose of saving money?",
           options: [
-            "To achieve financial goals and security",
+            
             "To spend more later",
             "To avoid using banks",
+            "To achieve financial goals and security",
             "To pay more taxes"
           ],
           correctAnswer: "To achieve financial goals and security"
@@ -127,8 +128,9 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is compound interest?",
           options: [
-            "Interest earned on both principal and accumulated interest",
+            
             "A fixed interest rate",
+            "Interest earned on both principal and accumulated interest",
             "A type of loan",
             "Monthly bank charges"
           ],
@@ -137,10 +139,11 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is a credit score?",
           options: [
-            "A number that reflects your creditworthiness",
+            
             "A type of bank ",
             "A credit card limit",
-            "A loan application"
+            "A loan application",
+            "A number that reflects your creditworthiness",
           ],
           correctAnswer: "A number that reflects your creditworthiness"
         },
@@ -167,8 +170,9 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is a bond?",
           options: [
-            "A debt instrument issued by governments or corporations",
+            
             "A type of stock",
+            "A debt instrument issued by governments or corporations",
             "A savings ",
             "A credit card"
           ],
@@ -177,9 +181,10 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is inflation?",
           options: [
-            "The rate at which the general level of prices for goods and services is rising",
+            
             "A type of investment",
             "A government policy",
+            "The rate at which the general level of prices for goods and services is rising",
             "A type of loan"
           ],
           correctAnswer: "The rate at which the general level of prices for goods and services is rising"
@@ -197,10 +202,11 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is the difference between a stock and a bond?",
           options: [
-            "Stocks represent ownership in a company, bonds are loans to a company or government",
+            
             "Stocks are safer than bonds",
             "Bonds are riskier than stocks",
-            "Stocks pay fixed interest, bonds do not"
+            "Stocks pay fixed interest, bonds do not",
+            "Stocks represent ownership in a company, bonds are loans to a company or government",
           ],
           correctAnswer: "Stocks represent ownership in a company, bonds are loans to a company or government"
         },
@@ -217,8 +223,9 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is a mutual fund?",
           options: [
-            "A pool of money from multiple investors",
+            
             "A savings ",
+            "A pool of money from multiple investors",
             "A type of credit card",
             "A government bond"
           ],
@@ -239,9 +246,10 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is an ETF (Exchange Traded Fund)?",
           options: [
-            "A type of investment fund that trades on stock exchanges",
+            
             "A savings ",
             "A credit card",
+            "A type of investment fund that trades on stock exchanges",
             "A loan"
           ],
           correctAnswer: "A type of investment fund that trades on stock exchanges"
@@ -249,9 +257,10 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is the Sharpe Ratio?",
           options: [
-            "A measure of risk-adjusted return",
+            
             "A type of stock",
             "A type of bond",
+            "A measure of risk-adjusted return",
             "A measure of inflation"
           ],
           correctAnswer: "A measure of risk-adjusted return"
@@ -269,8 +278,9 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is the Capital Asset Pricing Model (CAPM)?",
           options: [
-            "A model used to determine the expected rate of return for an asset",
+            
             "A type of savings ",
+            "A model used to determine the expected rate of return for an asset",
             "A credit card",
             "A loan"
           ],
@@ -289,9 +299,10 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is a hedge fund?",
           options: [
-            "A private investment fund that uses a variety of strategies to generate returns",
+           
             "A type of savings ",
             "A credit card",
+            "A private investment fund that uses a variety of strategies to generate returns",
             "A loan"
           ],
           correctAnswer: "A private investment fund that uses a variety of strategies to generate returns"
@@ -299,10 +310,11 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is quantitative easing?",
           options: [
-            "A monetary policy used by central banks to increase the money supply",
+            
             "A type of investment strategy",
             "A type of financial statement",
-            "A measure of a company's profit"
+            "A measure of a company's profit",
+            "A monetary policy used by central banks to increase the money supply",
           ],
           correctAnswer: "A monetary policy used by central banks to increase the money supply"
         },

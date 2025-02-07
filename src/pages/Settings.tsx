@@ -12,8 +12,8 @@ const Settings = () => {
   const navigate = useNavigate();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [avatarUrl, setAvatarUrl] = useState("/placeholder.svg");
-  const [fullName, setFullName] = useState("John Doe");
-  const [email, setEmail] = useState("john@example.com");
+  const [fullName, setFullName] = useState("Fullname");
+  const [email, setEmail] = useState("Name@example.com");
 
   const handleSignOut = () => {
     localStorage.clear();

@@ -69,19 +69,7 @@ export const Sidebar = () => {
             ))}
           </nav>
 
-          <div className="p-4 border-t">
-            <Button
-              variant="destructive"
-              className="w-full"
-              onClick={() => {
-                // Handle logout
-                console.log("Logout clicked");
-              }}
-            >
-              <LogOut className="mr-2" size={20} />
-              Sign Out
-            </Button>
-          </div>
+          
         </div>
       </div>
     </>

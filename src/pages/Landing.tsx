@@ -53,7 +53,7 @@ const Landing = () => {
                 variant="outline"
                 className="transform hover:scale-105 transition-all duration-300"
               >
-                <Link to="/login">Already have an account?</Link>
+                <Link to="/login" className="text-black">Already have an account?</Link>
               </Button>
             </div>
           </div>

@@ -1,12 +1,13 @@
 import { Card } from "@/components/ui/card";
 import {
-  DollarSign,
+  IndianRupee,
   TrendingUp,
   Gem,
   BookOpen,
   Video,
   Star,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Dashboard = () => {
   return (
@@ -23,13 +24,13 @@ const Dashboard = () => {
         {[
           {
             title: "Total Balance",
-            value: "$4,570.00",
-            icon: DollarSign,
+            value: "₹4,570.00",
+            icon: IndianRupee, // ✅ Corrected
             trend: "+12%",
           },
           {
             title: "Monthly Savings",
-            value: "$840.00",
+            value: "₹840.00",
             icon: TrendingUp,
             trend: "+5%",
           },
@@ -43,7 +44,7 @@ const Dashboard = () => {
           <Card
             key={index}
             className="p-6 hover:shadow-lg transition-shadow animate-fade-in"
-            style={{ animationDelay: `${index * 100}ms` }}
+            style={{ animationDelay: `${index * 100}ms` }} // ✅ Fixed string interpolation
           >
             <div className="flex items-center justify-between">
               <div>
@@ -54,7 +55,7 @@ const Dashboard = () => {
                 <p className="text-sm text-green-500 mt-1">{item.trend}</p>
               </div>
               <div className="p-4 bg-primary/10 rounded-full">
-                <item.icon className="w-6 h-6 text-primary" />
+                <item.icon className="w-6 h-6 text-primary" /> {/* ✅ Works fine */}
               </div>
             </div>
           </Card>
@@ -117,5 +118,3 @@ const Dashboard = () => {
 };
 
 export default Dashboard;
-
-import { Button } from "@/components/ui/button";

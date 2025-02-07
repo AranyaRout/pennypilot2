@@ -4,7 +4,7 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { toast } from "sonner";
 
-const AccountCreation = () => {
+const Creation = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -21,10 +21,10 @@ const AccountCreation = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-8">
+    <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg">
       <div className="space-y-6">
-        <Button 
-          variant="outline" 
+        <Button
+          variant="outline"
           className="w-full hover:bg-secondary/80 transition-all duration-300"
           onClick={handleGoogleSignIn}
         >
@@ -68,7 +68,7 @@ const AccountCreation = () => {
             />
           </div>
 
-          <Button 
+          <Button
             className="w-full mt-4 transition-all duration-300"
             onClick={handleEmailSignup}
           >
@@ -76,16 +76,7 @@ const AccountCreation = () => {
           </Button>
         </div>
       </div>
-
-      <div className="hidden md:flex items-center justify-center">
-        <img 
-          src="/animations/coin-stack.gif" 
-          alt="Coin stacking animation" 
-          className="w-64 h-64 object-contain animate-bounce"
-        />
-      </div>
     </div>
   );
-};
-
-export default AccountCreation;
+}; ``
+export default Creation;

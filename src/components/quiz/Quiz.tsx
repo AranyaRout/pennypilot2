@@ -25,7 +25,7 @@ const Quiz = ({ level }: QuizProps) => {
           question: "What is a budget?",
           options: [
             "A financial plan for spending and saving",
-            "A type of bank account",
+            "A type of bank ",
             "A credit card limit",
             "A loan application"
           ],
@@ -34,49 +34,50 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is the purpose of saving money?",
           options: [
+            "To pay more taxes",
             "To achieve financial goals and security",
             "To spend more later",
             "To avoid using banks",
-            "To pay more taxes"
+            
           ],
           correctAnswer: "To achieve financial goals and security"
         },
         {
           question: "What is the difference between needs and wants?",
           options: [
-            "Needs are essential, wants are desired but not essential",
             "Needs are cheaper, wants are more expensive",
             "Needs are for adults, wants are for children",
-            "Needs are short-term, wants are long-term"
+            "Needs are essential, wants are desired but not essential",
+            "Needs are short-term, wants are long-term",
           ],
           correctAnswer: "Needs are essential, wants are desired but not essential"
         },
         {
           question: "What is the importance of tracking your expenses?",
           options: [
+            "To avoid paying taxes",
+            "To get a better credit score",
             "To know where your money is going",
             "To impress your friends",
-            "To avoid paying taxes",
-            "To get a better credit score"
           ],
           correctAnswer: "To know where your money is going"
         },
         {
           question: "What is the first step in creating a budget?",
-          options: [
-            "Calculate your income",
+          options: [ 
             "List all your expenses",
+            "Calculate your income",
             "Set financial goals",
-            "Open a savings account"
+            "Open a savings "
           ],
           correctAnswer: "Calculate your income"
         },
         {
           question: "What is an emergency fund?",
-          options: [
-            "Money set aside for unexpected expenses",
+          options: [ 
             "A fund for vacations",
-            "A retirement account",
+            "A retirement ",
+            "Money set aside for unexpected expenses",
             "A fund for buying a house"
           ],
           correctAnswer: "Money set aside for unexpected expenses"
@@ -84,8 +85,8 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is the 50/30/20 rule?",
           options: [
-            "50% needs, 30% wants, 20% savings",
             "50% savings, 30% needs, 20% wants",
+            "50% needs, 30% wants, 20% savings",
             "50% investments, 30% savings, 20% needs",
             "50% wants, 30% savings, 20% needs"
           ],
@@ -137,7 +138,7 @@ const Quiz = ({ level }: QuizProps) => {
           question: "What is a credit score?",
           options: [
             "A number that reflects your creditworthiness",
-            "A type of bank account",
+            "A type of bank ",
             "A credit card limit",
             "A loan application"
           ],
@@ -168,7 +169,7 @@ const Quiz = ({ level }: QuizProps) => {
           options: [
             "A debt instrument issued by governments or corporations",
             "A type of stock",
-            "A savings account",
+            "A savings ",
             "A credit card"
           ],
           correctAnswer: "A debt instrument issued by governments or corporations"
@@ -186,12 +187,12 @@ const Quiz = ({ level }: QuizProps) => {
         {
           question: "What is a Roth IRA?",
           options: [
-            "A retirement account with tax-free withdrawals",
-            "A type of savings account",
+            "A retirement  with tax-free withdrawals",
+            "A type of savings ",
             "A credit card",
             "A loan"
           ],
-          correctAnswer: "A retirement account with tax-free withdrawals"
+          correctAnswer: "A retirement  with tax-free withdrawals"
         },
         {
           question: "What is the difference between a stock and a bond?",
@@ -217,7 +218,7 @@ const Quiz = ({ level }: QuizProps) => {
           question: "What is a mutual fund?",
           options: [
             "A pool of money from multiple investors",
-            "A savings account",
+            "A savings ",
             "A type of credit card",
             "A government bond"
           ],
@@ -230,7 +231,7 @@ const Quiz = ({ level }: QuizProps) => {
           options: [
             "A mix of different types of investments to reduce risk",
             "Investing all money in stocks",
-            "A savings account with high interest",
+            "A savings  with high interest",
             "A retirement plan"
           ],
           correctAnswer: "A mix of different types of investments to reduce risk"
@@ -239,7 +240,7 @@ const Quiz = ({ level }: QuizProps) => {
           question: "What is an ETF (Exchange Traded Fund)?",
           options: [
             "A type of investment fund that trades on stock exchanges",
-            "A savings account",
+            "A savings ",
             "A credit card",
             "A loan"
           ],
@@ -269,7 +270,7 @@ const Quiz = ({ level }: QuizProps) => {
           question: "What is the Capital Asset Pricing Model (CAPM)?",
           options: [
             "A model used to determine the expected rate of return for an asset",
-            "A type of savings account",
+            "A type of savings ",
             "A credit card",
             "A loan"
           ],
@@ -289,7 +290,7 @@ const Quiz = ({ level }: QuizProps) => {
           question: "What is a hedge fund?",
           options: [
             "A private investment fund that uses a variety of strategies to generate returns",
-            "A type of savings account",
+            "A type of savings ",
             "A credit card",
             "A loan"
           ],

@@ -1,15 +1,18 @@
+import { Rocket, Coins } from "lucide-react";
 import { Link } from "react-router-dom";
 
-export const Logo = () => {
+export const Logo = ({ className = "", size = "default" }: { className?: string; size?: "default" | "large" }) => {
+  const iconSize = size === "large" ? "h-12 w-12" : "h-6 w-6";
+  const smallIconSize = size === "large" ? "h-8 w-8" : "h-4 w-4";
+  const textSize = size === "large" ? "text-4xl" : "text-xl";
+
   return (
-    <Link
-      to="/"
-      className="flex items-center gap-2 font-bold text-2xl text-primary hover:opacity-90 transition-opacity"
-    >
-      <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg animate-float">
-        <span className="text-white text-xl font-black">P</span>
+    <Link to="/" className={`flex items-center gap-4 ${className}`}>
+      <div className="relative">
+        <Rocket className={`${iconSize} text-primary animate-pulse`} />
+        
       </div>
-      <span className="bg-gradient-to-r from-primary to-accent-pink bg-clip-text text-transparent">
+      <span className={`font-bold ${textSize} bg-clip-text text-primary animate-fade-in`}>
         PennyPilot
       </span>
     </Link>

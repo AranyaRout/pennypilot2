@@ -54,7 +54,7 @@ const ProfileSetup = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="max-w-2xl mx-auto p-6 bg-white dark:bg-gray-900 rounded-lg shadow-lg space-y-6">
       <div className="flex flex-col items-center space-y-4">
         <Avatar className={`h-24 w-24 ${animationClass} transition-all duration-500`}>
           <AvatarImage src={avatarUrl} />
@@ -120,14 +120,6 @@ const ProfileSetup = () => {
           max={65}
           step={1}
           className="transition-all duration-300"
-        />
-      </div>
-
-      <div className="hidden md:flex items-center justify-center">
-        <img 
-          src="/animations/piggy-bank.gif" 
-          alt="Growing piggy bank animation" 
-          className="w-64 h-64 object-contain animate-float"
         />
       </div>
     </div>

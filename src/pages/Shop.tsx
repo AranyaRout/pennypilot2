@@ -6,7 +6,7 @@ const Shop = () => {
   const subscriptionPlans = [
     {
       title: "Weekly Plan",
-      price: "₹49.00",
+      price: "₹29.00",
       period: "per week",
       features: [
         "Basic financial content access",
@@ -17,7 +17,7 @@ const Shop = () => {
     },
     {
       title: "Monthly Plan",
-      price: "₹149.00",
+      price: "₹99.00",
       period: "per month",
       features: [
         "All Weekly Plan features",
@@ -30,7 +30,7 @@ const Shop = () => {
     },
     {
       title: "Yearly Plan",
-      price: "₹1,499.00",
+      price: "₹999.00",
       period: "per year",
       features: [
         "All Monthly Plan features",

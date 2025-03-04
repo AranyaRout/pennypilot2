@@ -1,6 +1,9 @@
-import { BookOpen, IndianRupee , PiggyBank, GraduationCap, Brain, Briefcase, LineChart, PieChart } from "lucide-react";
+
+
+import { BookOpen, IndianRupee, PiggyBank, GraduationCap, Brain, Briefcase, LineChart, PieChart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const Learn = () => {
   const navigate = useNavigate();
@@ -16,8 +19,17 @@ const Learn = () => {
     navigate(`/quiz/${level}`);
   };
 
+  // State to manage which section is expanded
+  const [expandedSection, setExpandedSection] = useState<string | null>(null);
+
+  const toggleSection = (section: string) => {
+    // Collapse the section if it's already open, otherwise expand it
+    setExpandedSection(expandedSection === section ? null : section);
+  };
+
   return (
     <div className="p-6 max-w-7xl mx-auto space-y-8 bg-gradient-to-br from-background to-background/80">
+      {/* Header */}
       <div className="flex items-center justify-between flex-wrap gap-4">
         <h1 className="text-3xl font-bold bg-clip-text text-primary ">
           Learn Financial Management
@@ -37,34 +49,127 @@ const Learn = () => {
 
       {/* Main Sections */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* Budgeting Basics */}
         <div className="bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-lg space-y-4 hover:transform hover:scale-105 transition-all">
-          <div className="flex items-center gap-2">
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => toggleSection("budgeting")}
+          >
             <BookOpen className="h-6 w-6 text-primary animate-pulse" />
             <h2 className="text-xl font-semibold">Budgeting Basics</h2>
+            <span
+              className={`ml-auto text-primary font-bold transition-transform ${
+                expandedSection === "budgeting" ? "rotate-180" : ""
+              }`}
+            >
+              ↓
+            </span>
           </div>
-          <p className="text-muted-foreground">
-            Learn the fundamentals of creating and maintaining a budget that works for your lifestyle.
-          </p>
+          {/* Expandable Content */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              expandedSection === "budgeting" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="space-y-4">
+              <p className="text-black">
+                <strong className="text-primary">What it is:</strong> This is the process of creating a plan to spend your money. This spending plan is called a budget. Creating this plan allows you to determine in advance whether you will have enough money to do the things you need to do or would like to do.
+              </p>
+              <p className="text-black">
+                <strong className="text-primary">Why it matters:</strong> Helps you track income and expenses, avoid overspending, and ensure you’re saving for future goals.
+              </p>
+              <p className="text-black">
+                <strong className="text-primary">How to start:</strong>
+                <ul className="list-disc pl-4">
+                  <li>Track your income and expenses.</li>
+                  <li>Use the 50/30/20 rule: Allocate 50% to needs, 30% to wants, and 20% to savings and debt repayment.</li>
+                  <li>Use budgeting tools or apps to stay organized.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
         </div>
 
+        {/* Investment Ideas */}
         <div className="bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-lg space-y-4 hover:transform hover:scale-105 transition-all">
-          <div className="flex items-center gap-2">
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => toggleSection("investment")}
+          >
             <IndianRupee className="h-6 w-6 text-primary animate-pulse" />
             <h2 className="text-xl font-semibold">Investment Ideas</h2>
+            <span
+              className={`ml-auto text-primary font-bold transition-transform ${
+                expandedSection === "investment" ? "rotate-180" : ""
+              }`}
+            >
+              ↓
+            </span>
           </div>
-          <p className="text-muted-foreground">
-            Discover various investment options and strategies to grow your wealth over time.
-          </p>
+          {/* Expandable Content */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              expandedSection === "investment" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="space-y-4">
+              <p className="text-black">
+                <strong className="text-primary">What it is:</strong> This is the act of allocating resources, usually money, with the expectation of generating an income or profit. You can invest in stocks, bonds, real estate, or start your own business.
+              </p>
+              <p className="text-black">
+                <strong className="text-primary">Why it matters:</strong> Helps grow wealth and beat inflation.
+              </p>
+              <p className="text-black">
+                <strong className="text-primary">How to start:</strong>
+                <ul className="list-disc pl-4">
+                  <li>Learn about different investment options (stocks, bonds, mutual funds, ETFs, real estate).</li>
+                  <li>Start early to take advantage of compound interest.</li>
+                  <li>Diversify your investments to reduce risk.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
         </div>
 
+        {/* Saving Strategies */}
         <div className="bg-white/10 backdrop-blur-lg p-6 rounded-lg shadow-lg space-y-4 hover:transform hover:scale-105 transition-all">
-          <div className="flex items-center gap-2">
+          <div
+            className="flex items-center gap-2 cursor-pointer"
+            onClick={() => toggleSection("saving")}
+          >
             <PiggyBank className="h-6 w-6 text-primary animate-pulse" />
             <h2 className="text-xl font-semibold">Saving Strategies</h2>
+            <span
+              className={`ml-auto text-primary font-bold transition-transform ${
+                expandedSection === "saving" ? "rotate-180" : ""
+              }`}
+            >
+              ↓
+            </span>
           </div>
-          <p className="text-muted-foreground">
-            Master effective techniques to save money and achieve your financial goals.
-          </p>
+          {/* Expandable Content */}
+          <div
+            className={`overflow-hidden transition-all duration-300 ${
+              expandedSection === "saving" ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+            }`}
+          >
+            <div className="space-y-4">
+              <p className="text-black">
+                <strong className="text-primary">What it is:</strong> This involves setting aside money for future use. It is important for unexpected expenses, retirement, or large purchases. A good rule of thumb is to save at least 20% of your income.
+              </p>
+              <p className="text-black">
+                <strong className="text-primary">Why it matters:</strong> Provides financial security and helps you achieve long-term goals.
+              </p>
+              <p className="text-black">
+                <strong className="text-primary">How to start:</strong>
+                <ul className="list-disc pl-4">
+                  <li>Build an emergency fund (3–6 months of living expenses).</li>
+                  <li>Save for short-term goals (e.g., vacations) and long-term goals (e.g., retirement).</li>
+                  <li>Automate savings to make it consistent.</li>
+                </ul>
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -132,4 +237,3 @@ const Learn = () => {
 };
 
 export default Learn;
-
